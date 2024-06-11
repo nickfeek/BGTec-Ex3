@@ -1,0 +1,22 @@
+﻿@page
+@model AgeCalculatorWebsite.Pages.IndexModel
+@{
+    ViewData["Title"] = "Age Calculator";
+}
+
+<form method="post">
+    <label class="mb-3" for="date">Enter your birthdate:</label>
+    <div>
+        <input type="text" id="date" name="Date" placeholder="dd/mm/yyyy"/>
+        <button type="submit">Submit</button>
+    </div>
+    <div class="mt-2"><span asp-validation-for="Date"></span></div>
+</form>
+
+@if (ViewData["SubmittedDate"] != null)
+{
+    <div class="mt-5">
+        <p>Submitted Birthdate: @ViewData["SubmittedDate"]</p>
+        <p>Your Age: @ViewData["Age"]</p>
+    </div>
+}
